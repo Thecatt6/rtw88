@@ -1,0 +1,17 @@
+Build date: 2026-09-22 (rebuild)
+Kernel tag: linux-msft-wsl-6.18.33.2
+Kernel release: 6.18.33.2-microsoft-standard-WSL2 (no +)
+Vermagic: 6.18.33.2-microsoft-standard-WSL2 SMP preempt mod_unload modversions
+Official cfg80211.ko: .gnu.linkonce.this_module 00000500 (1280) - matches our build
+Our rtw_core.ko: .gnu.linkonce.this_module 00000500 (1280) - FIXED from 000004c0 (1216)
+GCC: 12.2.0 (kernel built with 13.2.0 official)
+MODVERSIONS: y (matches official WSL kernel)
+BTF: y, BTF_MODULES: y, STACK_VALIDATION: y, GCC_PLUGINS: y, MODULE_ALLOW_BTF_MISMATCH: y
+Built with: KBUILD_MODPOST_WARN=1 due to empty Module.symvers (official Module.symvers not available in sandbox)
+Number of modules: 33
+Fixes:
+- struct module size: 0x500 (1280) matches official cfg80211.ko, fixes "section size must match" Exec format error
+- vermagic: no trailing + (fixed setlocalversion)
+- rtw88.conf: no blank lines, Unix LF, no BOM, with .gitattributes *.conf text eol=lf to prevent CRLF ^M
+- modversions: enabled to match official kernel
+- VHDX: use build_wsl_rtw88_vhdx.sh for full VHDX if needed

@@ -99,3 +99,18 @@ all.config
 # Driver backups
 backup_drivers.tar
 
+
+# Allow built artifacts for WSL
+!build-output/
+!build-output/**
+!build-output-lite/
+!build-output-lite/**
+!*.tar.gz
+rtw88-wsl-*.tar.gz
+!rtw88-wsl-*.tar.gz
+
+# Ignore large raw images (use compressed tar.gz instead, GitHub limit 100MB)
+build-output/*.img
+build-output/*.vhdx
+*.img
+*.vhdx
